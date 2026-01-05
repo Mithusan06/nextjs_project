@@ -44,3 +44,16 @@ export interface BookingSummary extends BookingForm {
   tax: number;
   subtotal: number;
 }
+
+export type PaymentStatus = 'completed' | 'pending' | 'failed' | 'refunded';
+
+export interface PaymentHistory {
+  id: string;
+  transactionId: string;
+  serviceName: string;
+  date: string;
+  amount: number;
+  status: PaymentStatus;
+  paymentMethod: 'card' | 'wallet' | 'bank';
+  cardLastFour?: string;
+}
